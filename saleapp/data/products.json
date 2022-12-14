@@ -1,0 +1,41 @@
+[{
+  "id": 1,
+  "name": "300 codes problem",
+  "description": "Samsung, 64Gb, RAML: 6GB",
+  "price": 37000000,
+  "image": "https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg",
+  "category_id": 1
+},
+  {
+  "id": 2,
+  "name": "Code C++",
+  "description": "Samsung, 64Gb, RAML: 6GB",
+  "price": 47000000,
+  "image": "https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg",
+  "category_id": 1
+},
+  {
+  "id": 3,
+  "name": "Kid",
+  "description": "Tivi, 64Gb, RAML: 6GB",
+  "price": 37000000,
+  "image": "https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg",
+  "category_id": 2
+},
+  {
+  "id": 4,
+  "name": "Batman who laugh",
+  "description": "HP, 64Gb, RAML: 6GB",
+  "price": 37000000,
+  "image": "https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg",
+  "category_id": 3
+},
+  {
+  "id": 5,
+  "name": "Batman who fuck",
+  "description": "HP, 64Gb, RAML: 6GB",
+  "price": 37000000,
+  "image": "https://cdn.tgdd.vn/Products/Images/42/235838/Galaxy-S22-Ultra-Burgundy-600x600.jpg",
+  "category_id": 3
+}
+]
