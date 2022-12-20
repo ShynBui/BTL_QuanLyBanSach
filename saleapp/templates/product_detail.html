@@ -1,117 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="{{ url_for('static', filename='css/style.css') }}"
-          rel="stylesheet"/>
-    <script src="{{ url_for('static', filename='js/js.js') }}"></script>
-    <meta charset="UTF-8">
-    <!-- CSS only -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Title</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-            crossorigin="anonymous"></script>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark justify-content-between">
-    <a class="navbar-brand" href="/">
-        <img src="../static/image/wibu.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Wibu Shop</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('product_list')}}">Trang chủ <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">Dăng nhập</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/">Đăng ký</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Thể loại
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    {% for cate in cates %}
-                    <a class="dropdown-item" href="/products?category_id={{cate.id}}">{{cate.name}}</a>
-                    {% endfor %}
-                </div>
-            </li>
-        </ul>
-    </div>
-     <!-- Search button -->
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</nav>
+{% extends 'layout/base.html' %}
 
-    <div class="container mt-5 mb-5">
-        <div class="card">
-            <div class="row g-0">
-                <div class="col-md-6 border-end">
-                    <div class="d-flex flex-column justify-content-center">
-                        <div class="main_image"><img src="{{product.image}}" id="main_product_image"
-                                                     width="350"></div>
-                        <div class="thumbnail_images">
-                            <ul id="thumbnail">
-                                <li><img onclick="changeImage(this)" src="{{product.image}}" width="70">
-                                </li>
-                                <li><img onclick="changeImage(this)" src="{{product.image}}" width="70">
-                                </li>
-                                <li><img onclick="changeImage(this)" src="{{product.image}}" width="70">
-                                </li>
-                                <li><img onclick="changeImage(this)" src="{{product.image}}" width="70">
-                                </li>
-                            </ul>
-                        </div>
+{% block title %} Chi tiết sản phẩm {% endblock %}
+
+{% block content %}
+
+
+<div class="container mt-5 mb-5">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-md-6 border-end">
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="main_image"><img src="{{product.image}}" id="main_product_image"
+                                                 width="350"></div>
+                    <div class="thumbnail_images">
+                        <ul id="thumbnail">
+                            <li><img onclick="changeImage(this)" src="{{product.image}}" width="70">
+                            </li>
+                            <li><img onclick="changeImage(this)" src="{{product.image}}" width="70">
+                            </li>
+                            <li><img onclick="changeImage(this)" src="{{product.image}}" width="70">
+                            </li>
+                            <li><img onclick="changeImage(this)" src="{{product.image}}" width="70">
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="p-3 right-side">
-                        <div class="d-flex justify-content-between align-items-center"><h3>{{product.name}}</h3>    <span
-                                class="heart"><i class='bx bx-heart'></i></span></div>
-                        <div class="mt-2 pr-3 content"><p>{{product.description}}</p></div>
-                        <h3>{{product.price}}</h3>
-                        <div class="ratings d-flex flex-row align-items-center">
-                            <div class="d-flex flex-row"><i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i
-                                    class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bx-star'></i>
-                            </div>
-                            <span>441 reviews</span></div>
-                        <div class="mt-5"><span class="fw-bold"></span>
-
+            </div>
+            <div class="col-md-6">
+                <div class="p-3 right-side">
+                    <div class="d-flex justify-content-between align-items-center"><h3>{{product.name}}</h3>    <span
+                            class="heart"><i class='bx bx-heart'></i></span></div>
+                    <div class="mt-2 pr-3 content"><p>{{product.description}}</p></div>
+                    <h3>{{product.price}}</h3>
+                    <div class="ratings d-flex flex-row align-items-center">
+                        <div class="d-flex flex-row"><i class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i
+                                class='bx bxs-star'></i> <i class='bx bxs-star'></i> <i class='bx bx-star'></i>
                         </div>
-                        <div class="buttons d-flex flex-row mt-5 gap-3">
+                        <span>441 reviews</span></div>
+                    <div class="mt-5"><span class="fw-bold"></span>
+
+                    </div>
+                    <div class="buttons d-flex flex-row mt-5 gap-3">
+                        <a href="/cart">
                             <button class="btn btn-outline-dark">Buy Now</button>
+                        </a>
+                        <a onclick="addToCart({{product.id}}, '{{product.name}}', {{product.price}})">
                             <button class="btn btn-dark">Add to Basket</button>
-                        </div>
-                        <div class="search-option"><i class='bx bx-search-alt-2 first-search'></i>
-                            <img src="..\static\image\goku.gif">
-                            <i class='bx bx-share-alt share'></i></div>
+                        </a>
+
+
                     </div>
+                    <div class="search-option"><i class='bx bx-search-alt-2 first-search'></i>
+                        <img src="..\static\image\goku.gif">
+                        <i class='bx bx-share-alt share'></i></div>
                 </div>
             </div>
         </div>
     </div>
-</body>
-</html>
+
+    <br>
+    <br>
+
+    {%if current_user.is_authenticated %}
+    <div class="row">
+        <div class="form-group">
+            <textarea id="commentId" class="form-control" placeholder="Nhập nội dung để bình luận...">
+
+            </textarea>
+            <input type="button" class="btn btn-dark" value="Bình luận" onclick="addComment({{product.id}})"/>
+        </div>
+    </div>
+    {%else%}
+    <a href="{{url_for('user_signin')}}"> Đăng nhập để bình luận</a>
+    {%endif%}
+    <br>
+    <br>
+    <div id="commentArea">
+        {%for c in comments%}
+        <div class="row comment">
+            <div class="col-md-1">
+                {% if c.user.avatar and c.user.avatar.startswith('https') %}
+                <img src="{{c.user.avatar}}" class="rounded-circle img-fluid" width="50px" height="50px"/>
+                {%else%}
+                <img src="{{url_for('static', filename='image/wibu.png')}}" class="rounded-circle img-fluid"
+                     width="50px" height="50px"/>
+                {%endif %}
+            </div>
+            <div class="col-md-11">
+                <p>{{c.content}}</p>
+                <p>
+                    <em class="myDate"> {{c.created_date}} </em>
+                </p>
+            </div>
+        </div>
+
+        {%endfor%}
+    </div>
+
+    <ul class="pagination">
+        {%if pages > 1%}
+        {% for i in range(1, pages + 1) %}
+        <li class="page-item"><a class="page-link" href="{{url_for('product_detail',product_id= product.id, page=i)}}">{{i}}</a>
+        </li>
+        {% endfor %}
+        {%endif%}
+    </ul>
+</div>
+
+<script>
+    window.onload = function() {
+        let d = document.getElementsByClassName('myDate')
+
+        for(let i = 0; i < d.length; i++) {
+            d[i].innerText = moment(d[i].innerText).locale('vi').fromNow()
+        }
+    }
+
+
+</script>
+{% endblock %}
+
